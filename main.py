@@ -18,7 +18,7 @@ def shorten():
 
         combos.add_link(link, combo)
         
-        return combo, 201
+        return combo, 201, {'Content-Type' : 'text/plain'}
     else:
         return "No link given.", 400
 
