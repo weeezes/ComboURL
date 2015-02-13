@@ -8,6 +8,8 @@ the only requirement for the project.
 Currently there's no persistent storage, the in-memory database
 is not thread safe so take this into account when running ComboURL :).
 
+The created URLs are of the format `http://swag-host.com/up-up-down-down`.
+
 ## API
 
 ### POST /shorten
