@@ -14,6 +14,7 @@ The created URLs are of the format `http://swag-host.com/up-up-down-down`.
 
 ### POST /shorten
 **Parameters:** `link` should contain the link to shorten
+
 **Returns:** a combo for the shortened link in `text/plain` format.
 
 ### GET /{combo}
