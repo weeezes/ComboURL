@@ -10,9 +10,28 @@ import combos
 
 app = Flask(__name__)
 
+def valid_link_from(dirty_link):
+    link = urllib2.unquote(dirty_link)
+
+    if urllib2.urlparse.urlparse(link).scheme is '':
+        link = 'http://' + link
+    
+    try:
+        req = urllib2.Request(link)
+        req.get_method = lambda:'HEAD'
+        response = urllib2.urlopen(req)
+        
+        if response.getcode() >= 400:
+            return None
+    except urllib2.URLError:
+        return None
+
+    return link
+
 @app.route('/shorten', methods=['POST'])
 def shorten():
-    link = urllib2.unquote(request.args['link'])
+    link = valid_link_from(request.args['link'])
+        
     if link:
         combo = combos.create_unique()
 
