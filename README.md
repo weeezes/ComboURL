@@ -33,10 +33,3 @@ Running the service in port 5000
 
     cd ComboURL/
     gunicorn -b 127.0.0.1:5000 main:app
-
-## Future
-
-A persistent storage should be implemented, eg. by using Redis. This
-would require a new `combos.py` module with tiny tweaks. If I understood
-the Redis documentation correctly this would also make the application
-thread safe if used correctly.
